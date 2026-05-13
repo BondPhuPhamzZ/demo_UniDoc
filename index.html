@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniDoc - Chia sẻ tài liệu học tập</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2 fs-4" href="#">
+                <i class="bi bi-book-half"></i> UniDoc
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-4 me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="#">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#">Tài liệu</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#">Trường học</a></li>
+                </ul>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary rounded-pill px-4 fw-medium">Đăng nhập</button>
+                    <button class="btn btn-primary rounded-pill px-4 fw-medium shadow-sm">Đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Search -->
+    <header class="hero-section py-5 mb-5 position-relative">
+        <div class="container position-relative z-1">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 py-5">
+                    <h1 class="display-4 fw-bold text-dark mb-3">Tài liệu học tập của bạn, ở ngay đây.</h1>
+                    <p class="lead text-secondary mb-4">Truy cập hàng ngàn đề thi, bài tập và giáo trình được chia sẻ bởi sinh viên khắp cả nước.</p>
+                    
+                    <div class="search-container shadow-lg rounded-pill p-2 bg-white d-flex align-items-center">
+                        <i class="bi bi-search text-muted ms-3 fs-5"></i>
+                        <input type="text" id="searchInput" class="form-control border-0 shadow-none bg-transparent ms-2 py-2 fs-5" placeholder="Nhập tên môn học, tài liệu, hoặc trường đại học...">
+                        <button class="btn btn-primary rounded-pill px-4 py-2 fw-medium fs-6" id="btnSearch">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative background shapes -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mb-5">
+        
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="fw-bold m-0">Tài liệu nổi bật (Mới tải lên)</h3>
+            <a href="#" class="text-decoration-none fw-medium">Xem tất cả <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+        <div class="row g-4" id="documentList">
+            <!-- Card 1 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 border-0 shadow-sm doc-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2">Đại học FPT</span>
+                            <button class="btn btn-sm btn-light rounded-circle"><i class="bi bi-bookmark"></i></button>
+                        </div>
+                        <h5 class="card-title fw-bold mt-3 mb-1 text-truncate" title="Đề thi cuối kỳ Nhập môn Lập trình C">Đề thi cuối kỳ Nhập môn Lập trình C</h5>
+                        <p class="card-text text-muted small mb-3">Môn: Nhập môn lập trình (C)</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                            <div class="text-muted small">
+                                <i class="bi bi-eye me-1"></i> 1.2k
+                                <i class="bi bi-download ms-3 me-1"></i> 340
+                            </div>
+                            <button class="btn btn-sm btn-outline-success rounded-pill btn-ai-summary" data-doc="C_Programming_Final">
+                                <i class="bi bi-robot"></i> AI Tóm tắt
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 border-0 shadow-sm doc-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-2">Bách Khoa HN</span>
+                            <button class="btn btn-sm btn-light rounded-circle"><i class="bi bi-bookmark"></i></button>
+                        </div>
+                        <h5 class="card-title fw-bold mt-3 mb-1 text-truncate" title="Bài tập lớn Cấu trúc dữ liệu và Giải thuật">Bài tập lớn Cấu trúc dữ liệu và Giải thuật</h5>
+                        <p class="card-text text-muted small mb-3">Môn: Cấu trúc dữ liệu (C++)</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                            <div class="text-muted small">
+                                <i class="bi bi-eye me-1"></i> 890
+                                <i class="bi bi-download ms-3 me-1"></i> 210
+                            </div>
+                            <button class="btn btn-sm btn-outline-success rounded-pill btn-ai-summary" data-doc="DSA_Project">
+                                <i class="bi bi-robot"></i> AI Tóm tắt
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 border-0 shadow-sm doc-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-info-subtle text-info rounded-pill px-3 py-2">KHTN HCM</span>
+                            <button class="btn btn-sm btn-light rounded-circle"><i class="bi bi-bookmark"></i></button>
+                        </div>
+                        <h5 class="card-title fw-bold mt-3 mb-1 text-truncate" title="Giải tích 1 - Bài tập và Lời giải chi tiết">Giải tích 1 - Bài tập và Lời giải chi tiết</h5>
+                        <p class="card-text text-muted small mb-3">Môn: Toán cao cấp 1</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                            <div class="text-muted small">
+                                <i class="bi bi-eye me-1"></i> 2.5k
+                                <i class="bi bi-download ms-3 me-1"></i> 800
+                            </div>
+                            <button class="btn btn-sm btn-outline-success rounded-pill btn-ai-summary" data-doc="Calculus_1">
+                                <i class="bi bi-robot"></i> AI Tóm tắt
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light py-5 border-top">
+        <div class="container text-center text-muted">
+            <p class="mb-2 fw-medium">© 2024 UniDoc. Bản quyền thuộc về Nhóm 1.</p>
+            <p class="small">Xây dựng bằng HTML, CSS, JS & Bootstrap 5</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification cho AI -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="aiToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header text-white bg-success">
+                <i class="bi bi-robot me-2"></i>
+                <strong class="me-auto">Gemini AI</strong>
+                <small>Vừa xong</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body bg-white text-dark" id="aiToastBody">
+                Đang tải tóm tắt...
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
