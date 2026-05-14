@@ -1,85 +1,27 @@
-/* Cài đặt Font chữ chung */
+/* Chỉ giữ lại các CSS custom tối thiểu, ưu tiên dùng class của Bootstrap 5 */
+
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f9fafb;
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Navbar */
-.navbar {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+/* Hiệu ứng hover nhẹ cho danh sách tài liệu */
+.list-item-hover {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border: 1px solid #e9ecef !important;
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
-    overflow: hidden;
+.list-item-hover:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px); /* Trượt nhẹ sang phải thay vì bay lên bóng bẩy */
+    border-color: #dee2e6 !important;
 }
 
-.search-container {
-    max-width: 650px;
-    margin: 0 auto;
-    transition: all 0.3s ease;
-    border: 1px solid #eef2f6;
+/* Tùy chỉnh icon file cho đẹp mắt hơn */
+.bi-file-earmark-pdf, .bi-file-earmark-word {
+    opacity: 0.8;
 }
 
-.search-container:focus-within {
-    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.15) !important;
-    border-color: #0d6efd;
-}
-
-/* Background Shapes */
-.shape {
-    position: absolute;
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.shape-1 {
-    width: 300px;
-    height: 300px;
-    background: rgba(13, 110, 253, 0.05);
-    top: -50px;
-    left: -100px;
-}
-
-.shape-2 {
-    width: 400px;
-    height: 400px;
-    background: rgba(25, 135, 84, 0.03);
-    bottom: -100px;
-    right: -150px;
-}
-
-/* Document Cards */
-.doc-card {
-    transition: all 0.3s ease;
-    border: 1px solid #f0f0f0 !important;
-    border-radius: 12px;
-}
-
-.doc-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
-}
-
-.badge {
-    font-weight: 500;
-}
-
-/* Nút AI */
-.btn-ai-summary {
-    transition: all 0.2s;
-}
-
-.btn-ai-summary:hover {
-    background-color: #198754;
-    color: white;
-}
-
-/* Toast AI */
-.toast {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+/* Form check cho bộ lọc */
+.form-check-label {
+    cursor: pointer;
 }

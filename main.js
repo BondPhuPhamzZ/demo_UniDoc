@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Khởi tạo Toast của Bootstrap
-    const aiToastElement = document.getElementById('aiToast');
-    const aiToast = new bootstrap.Toast(aiToastElement);
-    const aiToastBody = document.getElementById('aiToastBody');
+    // Khởi tạo Modal của Bootstrap
+    const aiModalElement = document.getElementById('aiModal');
+    const aiModal = new bootstrap.Modal(aiModalElement);
+    const aiModalBody = document.getElementById('aiModalBody');
 
     // Bắt sự kiện click vào các nút AI Tóm tắt
     const aiButtons = document.querySelectorAll('.btn-ai-summary');
@@ -12,36 +12,40 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Lấy id tài liệu (mock)
-            const docId = this.getAttribute('data-doc');
-            const docTitle = this.closest('.card-body').querySelector('.card-title').innerText;
+            // Lấy tên tài liệu
+            const docTitle = this.getAttribute('data-title');
             
-            // Đổi state của nút
-            const originalHtml = this.innerHTML;
-            this.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Đang xử lý...';
-            this.disabled = true;
+            // Hiện Modal với trạng thái đang tải
+            aiModalBody.innerHTML = `
+                <div class="text-center py-4">
+                    <div class="spinner-border text-success mb-3" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mb-0">Đang gửi yêu cầu tới Gemini AI để tóm tắt <strong>${docTitle}</strong>...</p>
+                </div>
+            `;
+            aiModal.show();
 
-            // Hiển thị Toast Loading
-            aiToastBody.innerHTML = `Đang dùng Gemini phân tích tài liệu: <strong>${docTitle}</strong>...`;
-            aiToast.show();
-
-            // Giả lập gọi API AI mất 2 giây
+            // Giả lập delay gọi API mất 2 giây
             setTimeout(() => {
-                // Phục hồi nút
-                this.innerHTML = originalHtml;
-                this.disabled = false;
-
-                // Cập nhật Toast với kết quả giả lập
-                aiToastBody.innerHTML = `
-                    <div class="fw-bold mb-1">Tóm tắt: ${docTitle}</div>
-                    <p class="small mb-0 text-muted">Tài liệu này bao gồm các kiến thức nền tảng quan trọng, các dạng bài tập thường gặp trong đề thi cuối kỳ và hướng dẫn giải chi tiết. Phù hợp để ôn tập cấp tốc.</p>
+                // Trả về kết quả
+                aiModalBody.innerHTML = `
+                    <h6 class="fw-bold mb-3 border-bottom pb-2">Kết quả phân tích:</h6>
+                    <p class="mb-2">Tài liệu <strong>${docTitle}</strong> chứa các nội dung chính sau:</p>
+                    <ul>
+                        <li>Tổng hợp các dạng bài tập trọng tâm thường gặp trong đề thi.</li>
+                        <li>Có kèm theo đáp án chi tiết và giải thích các bước.</li>
+                        <li>Phù hợp để sinh viên tự ôn tập nhanh trước kỳ thi.</li>
+                    </ul>
+                    <div class="alert alert-info mt-3 small mb-0">
+                        <i class="bi bi-info-circle"></i> Đây là tóm tắt tự động bởi AI. Bạn nên tải file về để xem chi tiết nhé.
+                    </div>
                 `;
-                aiToast.show();
             }, 2000);
         });
     });
 
-    // Bắt sự kiện tìm kiếm
+    // Code xử lý nút Tìm kiếm cơ bản
     const btnSearch = document.getElementById('btnSearch');
     const searchInput = document.getElementById('searchInput');
 
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         const query = searchInput.value.trim();
         if(query) {
-            alert(`Tính năng tìm kiếm sẽ lọc kết quả cho từ khóa: "${query}" (sẽ implement ở phần Backend)`);
+            alert(`Sẽ chuyển hướng tới trang tìm kiếm với từ khóa: "${query}"`);
         } else {
             searchInput.focus();
         }
